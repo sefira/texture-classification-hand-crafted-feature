@@ -1,6 +1,6 @@
 clear all;
 close all;
-run('..\vlfeat-0.9.19\vlfeat-0.9.19\toolbox\vl_setup')
+run('../vlfeat-0.9.19/vlfeat-0.9.19/toolbox/vl_setup')
 vl_version verbose
 
 
@@ -9,11 +9,11 @@ filter_type = 'LM'
 
 switch dataset_type
     case 'dtd'
-        load('Res\dtd_list.mat')
+        load('Res/dtd_list.mat')
     case 'fmd'
-        load('Res\fmd_list.mat')
+        load('Res/fmd_list.mat')
     case 'kth'
-        load('Res\kth_list.mat')
+        load('Res/kth_list.mat')
 end
 
 %% Specify the filter to be used.
@@ -62,7 +62,7 @@ params.total_images_per_class = total_images_per_class;
 params.total_images = training_images;
 
 [ training_class_centroid ] = build_texton_dictionary( params );
-save(['Res\', dataset_type, filter_type, 'texton_dictionary', '.mat'], ...
+save(['Res/', dataset_type, filter_type, 'texton_dictionary', '.mat'], ...
     'training_class_centroid')
 
 
@@ -79,7 +79,7 @@ params.training_per_class = training_per_class;
 params.no_classes = no_classes;
 
 [ training_histogram,training_classes ] = build_histogram_models( params);
-save(['Res\', dataset_type, filter_type, 'histogram_models', '.mat'], ...
+save(['Res/', dataset_type, filter_type, 'histogram_models', '.mat'], ...
     'training_histogram','training_classes')
 
 
@@ -98,7 +98,7 @@ params.test_images = test_images;
 params.test_per_class = test_per_class;
 params.KNN = KNN;
 [test_histogram,test_classes, accuracy ] = classify_images( params );
-save(['Res\', dataset_type, filter_type, 'classify_images', '.mat'], ...
+save(['Res/', dataset_type, filter_type, 'classify_images', '.mat'], ...
     'test_histogram','test_classes','accuracy')
 
 

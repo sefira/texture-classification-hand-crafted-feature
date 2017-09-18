@@ -1,11 +1,11 @@
 clear all;
 close all;
 
-imagepath = 'E:\Review\DTD\dtd\images\';
-filepath = 'E:\Review\DTD\dtd\labels\';
+imagepath = '../../DTD/dtd/images/';
+filepath = '../../DTD/dtd/labels/';
 train_filename = 'train1.txt';
 test_filename = 'test1.txt';
-save_filename = 'Res\dtd_list.mat';
+save_filename = 'Res/dtd_list.mat';
 
 fileID = fopen([filepath train_filename]);
 train_filenames = textscan(fileID,'%s %*[^\n]');
@@ -43,7 +43,7 @@ for c=1:no_training_classes
     for i = 1 : size(train_filenames,1)
         str = train_filenames{i};
         C = strsplit(str, '/');
-        filename = strrep(train_filenames(i), '/', '\');
+        filename = strrep(train_filenames(i), '/', '/');
         if strcmp(prefix, C{1})
             training_images(j,c) = cellstr([imagepath, filename{1}]);
             j = j+1;
@@ -60,7 +60,7 @@ for c=1:no_training_classes
     for i = 1 : size(test_filenames,1)
         str = test_filenames{i};
         C = strsplit(str, '/');
-        filename = strrep(test_filenames(i), '/', '\');
+        filename = strrep(test_filenames(i), '/', '/');
         if strcmp(prefix, C{1})
             test_images(j,c) = cellstr([imagepath, filename{1}]);
             j = j+1;
