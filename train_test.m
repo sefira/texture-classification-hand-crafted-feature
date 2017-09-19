@@ -3,8 +3,7 @@ close all;
 run('../vlfeat-0.9.19/vlfeat-0.9.19/toolbox/vl_setup')
 vl_version verbose
 
-
-dataset_type = 'fmd'
+dataset_type = 'kth'
 filter_type = 'LM'
 
 switch dataset_type
@@ -50,6 +49,8 @@ KNN = 1; %% for classify_images
 numClustersPerClass = ceil(2048/no_classes);
 NUM_BINS = numClustersPerClass * no_classes;
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 params = {};
 params.numOfFilters = numOfFilters;
 params.numClustersPerClass = numClustersPerClass;
@@ -83,7 +84,7 @@ save(['Res/', dataset_type, filter_type, 'histogram_models', '.mat'], ...
     'training_histogram','training_classes')
 
 
-
+addpath(genpath('../classification_toolbox_5.0'))
 params = {};
 params.patch_width = patch_width;
 params.patch_height = patch_height;

@@ -1,6 +1,13 @@
 function [ histogram   ] = filter_respone2histogram( filter_response,training_class_centroid,NUM_BINS)
     image_size = size(filter_response,1);
     
+    % random select response, like subsampling in conv2
+    perm = randperm(image_size);
+    sel = perm(1:image_size/10);
+    image_size = size(sel, 2);
+    filter_response = filter_response(sel,:); 
+
+
     texton_map = zeros(image_size ,1);
     
     hist_start = 1;
