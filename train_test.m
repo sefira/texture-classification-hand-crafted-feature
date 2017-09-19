@@ -4,7 +4,7 @@ run('../vlfeat-0.9.19/vlfeat-0.9.19/toolbox/vl_setup')
 vl_version verbose
 
 
-dataset_type = 'dtd'
+dataset_type = 'fmd'
 filter_type = 'LM'
 
 switch dataset_type

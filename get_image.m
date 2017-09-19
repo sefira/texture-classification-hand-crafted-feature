@@ -22,6 +22,11 @@ if(patch_width ~= -1)
     im = im(row_index:row_index+patch_width-1,col_index:col_index+patch_height-1);
 end
 
+% crop center 200x200
+row_index = round(size(im,1)/2-100);
+col_index = round(size(im,1)/2-100);
+im = im(row_index:row_index+200-1,col_index:col_index+200-1);
+
 im_mean = mean(im(:));
 im_std = std(im(:));
 im = im - im_mean;
