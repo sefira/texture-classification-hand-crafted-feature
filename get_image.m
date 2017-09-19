@@ -16,16 +16,18 @@ else
 end
 
 
-if(patch_width ~= -1)
+if (patch_width ~= -1)
     row_index = round((size(im,1)-patch_width)/2);
     col_index = round((size(im,2)-patch_height)/2);
     im = im(row_index:row_index+patch_width-1,col_index:col_index+patch_height-1);
 end
 
 % crop center 200x200
-row_index = round(size(im,1)/2-100);
-col_index = round(size(im,2)/2-100);
-im = im(row_index+1:row_index+200,col_index+1:col_index+200);
+if (size(im,1) > 200) && (size(im,2) > 200)
+    row_index = round(size(im,1)/2-100);
+    col_index = round(size(im,2)/2-100);
+    im = im(row_index+1:row_index+200,col_index+1:col_index+200);
+end
 
 im_mean = mean(im(:));
 im_std = std(im(:));

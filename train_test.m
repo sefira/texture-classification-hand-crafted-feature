@@ -32,9 +32,16 @@ switch filter_type
         %% filter_bank = [49, 49, 38]
         training_options = 'MR8'; %% To indicate that you are going to extract the MR-8 from RFS repos.
         classification_options = 'MR8';
-    %case 'patch33'
-    %case 'patch77'
-
+    case 'patch33'
+        filter_bank  = makePATCHfilters(3); %%  to use patch33 Filter bank
+        %% filter_bank = [3, 3, 9]
+        training_options = 'patch33'; %% To indicate that you are going to extract the MR-8 from RFS repos.
+        classification_options = 'patch33';
+    case 'patch77'
+        filter_bank  = makePATCHfilters(7); %%  to use patch77 Filter bank
+        %% filter_bank = [7, 7, 49]
+        training_options = 'patch77'; %% To indicate that you are going to extract the MR-8 from RFS repos.
+        classification_options = 'patch77';
 end
 
 numOfFilters = size(filter_bank,3); %% numOfFilters = 38
