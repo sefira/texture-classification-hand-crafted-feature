@@ -3,8 +3,8 @@ close all;
 run('../vlfeat-0.9.19/vlfeat-0.9.19/toolbox/vl_setup')
 vl_version verbose
 
-dataset_type = 'kth'
-filter_type = 'LM'
+dataset_type = 'fmd'
+filter_type = 'MR8'
 
 switch dataset_type
     case 'dtd'
